@@ -41,6 +41,9 @@ def is_valid(password: str):
     :param password: str
     :return: none
     """
+    if password[0:4] == "-f " and password[-1] == '"':
+        f = open(password[4:-1], "r")
+        password = f.read()
     lst = is_contain(password)
     dig = lst[1]
     low = lst[2]
